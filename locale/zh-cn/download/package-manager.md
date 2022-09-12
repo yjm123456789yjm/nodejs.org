@@ -9,25 +9,34 @@ title: 通过包管理器安装 Node.js
 
 ---
 
-* [Android](#android)
-* [Arch Linux](#arch-linux)
-* [CentOS，Fedora 和 Red Hat Enterprise Linux](#centos-fedora-and-red-hat-enterprise-linux)
-* [基于 Linux 的 Debian 和 Ubuntu 发行版，Enterprise Linux/Fedora 和 Snap packages](#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages)
-* [fnm](#fnm)
-* [FreeBSD](#freebsd)
-* [Gentoo](#gentoo)
-* [IBM i](#ibm-i)
-* [NetBSD](#netbsd)
-* [nvm](#nvm)
-* [nvs](#nvs)
-* [OpenBSD](#openbsd)
-* [openSUSE 和 SLE](#opensuse-and-sle)
-* [macOS](#macos)
-* [SmartOS 和 illumos](#smartos-and-illumos)
-* [Solus](#solus)
-* [Void Linux](#void-linux)
-* [Windows](#windows-1)
-* [z/OS](#zos)
+- [通过包管理器方式安装 Node.js](#通过包管理器方式安装-nodejs)
+  - [Android](#android)
+  - [Arch Linux](#arch-linux)
+  - [CentOS，Fedora 和 Red Hat Enterprise Linux](#centosfedora-和-red-hat-enterprise-linux)
+    - [可替换项](#可替换项)
+  - [基于 Linux 的 Debian 和 Ubuntu 发行版，Enterprise Linux/Fedora 和 Snap packages](#基于-linux-的-debian-和-ubuntu-发行版enterprise-linuxfedora-和-snap-packages)
+    - [可替换项](#可替换项-1)
+  - [fnm](#fnm)
+  - [FreeBSD](#freebsd)
+  - [Gentoo](#gentoo)
+  - [IBM i](#ibm-i)
+  - [NetBSD](#netbsd)
+  - [nvm](#nvm)
+  - [nvs](#nvs)
+      - [Windows](#windows)
+      - [macOS，UnixLike](#macosunixlike)
+      - [使用方法](#使用方法)
+  - [OpenBSD](#openbsd)
+  - [openSUSE 和 SLE](#opensuse-和-sle)
+  - [macOS](#macos)
+    - [可替代方案](#可替代方案)
+  - [SmartOS 和 illumos](#smartos-和-illumos)
+  - [Snap](#snap)
+  - [Solus](#solus)
+  - [Void Linux](#void-linux)
+  - [Windows](#windows-1)
+    - [可替代方案](#可替代方案-1)
+  - [z/OS](#zos)
 
 ---
 
@@ -78,7 +87,8 @@ dnf module install nodejs:12
 ### 可替换项
 
 以下是提供了 CentOS，Fedora，和 RHEL 系统相兼容安装包的资源：
-* [Node.js 快照](#snap) 在 https://github.com/nodejs/snap 得到支持和维护。
+
+* [Node.js 快照](#snap) 在 <https://github.com/nodejs/snap> 得到支持和维护。
 * [Node.js 二进制发布版](#debian-and-ubuntu-based-linux-distributions) 通过 [NodeSource](https://github.com/nodesource/distributions) 得到维护支持。
 
 <!--
@@ -152,6 +162,7 @@ pkgin -y install nodejs
 ```
 
 ## nvm
+
 Node 版本管理器是一个用于管理多个已发布的 Node.js 不同版本的 bash 脚本。它允许你执行诸如“安装”、“卸载”以及“版本切换”等诸多功能。
 使用[安装脚本](https://github.com/nvm-sh/nvm#install--update-script)安装 nvm。
 
@@ -178,6 +189,7 @@ nvm uninstall 8
 ## nvs
 
 #### Windows
+
 `nvs`版本管理器是一个跨平台，可用于 Windows、macOS 以及形如 Unix 的操作系统。
 
 在 Windows 上安装 `nvs`，请到此 [发布页](https://github.com/jasongin/nvs/releases) 下载最新发布的 MSI 安装源。
@@ -189,9 +201,11 @@ choco install nvs
 ```
 
 #### macOS，UnixLike
+
 你可以在 [此处](https://github.com/jasongin/nvs/blob/master/doc/SETUP.md#mac-linux) 找到关于在 macOS / 形如 Unix 操作系统的安装步骤文档。
 
 #### 使用方法
+
 安装完成后，你可以使用 `nvs` 在不同版本的 node 中来回切换。
 
 添加最新版本的 node：
@@ -254,7 +268,7 @@ zypper install nodejs4
 
 从 [nodejs.org](https://nodejs.org/) 官网直接下载 [macOS Installer](https://nodejs.org/zh-cn/#home-downloadhead)。
 
-_如果你想用 bash 命令下载：_
+*如果你想用 bash 命令下载：*
 
 ```bash
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
@@ -349,5 +363,6 @@ scoop install nodejs
 
 IBM&reg; 提供给 Node.js 的 SDK - z/OS&reg; 它有两种可用的安装方式：
 SMP/E and PAX。 你可选择一种合适的方式安装：
+
 * [在 z/OS 上安装配置 Node.js 的 SMP/E 版本](https://www.ibm.com/docs/en/sdk-nodejs-zos/14.0?topic=configuring-installing-smpe-edition)
 * [在 z/OS 上安装配置 Node.js 的 PAX 版本](https://www.ibm.com/docs/en/sdk-nodejs-zos/14.0?topic=configuring-installing-pax-edition)
